@@ -27,5 +27,4 @@
  ..\..\ORB-Python\micropython_embed/py/mpz.h \
  ..\..\ORB-Python\micropython_embed/py/objstr.h \
  ..\..\ORB-Python\micropython_embed/py/objarray.h \
- ..\..\ORB-Python\micropython_embed/py/builtin.h \
- ..\..\ORB-Python\micropython_embed/py/grammar.h
+ ..\..\ORB-Python\micropython_embed/py/builtin.h

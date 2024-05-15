@@ -32,5 +32,4 @@
  ..\..\ORB-Python\micropython_embed/py/persistentcode.h \
  ..\..\ORB-Python\micropython_embed/py/stream.h \
  ..\..\ORB-Python\micropython_embed/py/mperrno.h \
- ..\..\ORB-Python\micropython_embed/py/smallint.h \
- ..\..\ORB-Python\micropython_embed/py/grammar.h
+ ..\..\ORB-Python\micropython_embed/py/smallint.h
