@@ -95,8 +95,10 @@ void UserInterface::setMonitorEvent( BYTE event )
 //-------------------------------------------------------------------
 void UserInterface::setVcc( BYTE Vcc )
 {
+    /*
   if     ( Vcc > settings.getVccLevelOK()  )  { pwrIndicator.setBrightness( 20); pwrIndicator.blink(1000, 90); }
   else if( Vcc > settings.getVccLevelLow() )  { pwrIndicator.setBrightness( 50); pwrIndicator.blink(1000, 50); }
   else                                        { pwrIndicator.setBrightness(100); pwrIndicator.blink( 200, 50); }
+    */
 }
 //EOF
