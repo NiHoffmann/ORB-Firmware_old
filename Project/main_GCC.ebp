@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <EmBitz_project_file>
-	<EmBitzVersion release="2.60" revision="0" />
+	<EmBitzVersion release="2.50" revision="0" />
 	<FileVersion major="2" minor="0" />
 	<Project>
 		<Option title="main" />
@@ -191,6 +191,7 @@
 				</Environment>
 			</Target>
 			<Environment>
+				<Variable name="ORB_FIRMWARE" value="1" />
 				<Variable name="SW_MAIN" value="01" />
 				<Variable name="SW_SUB" value="00" />
 			</Environment>
@@ -229,6 +230,11 @@
 			<Add directory="${EMBSYSLIB}\Src" />
 			<Add directory="${EMBSYSLIB}\Src\Hardware\MCU\STM32F4xx" />
 			<Add directory="${EMBSYSLIB}\Src\Hardware\MCU\STM32F4xx\Sys\GCC" />
+			<Add directory="..\..\ORB-Python" />
+			<Add directory="..\..\ORB-Python\modules" />
+			<Add directory="..\..\ORB-Python\modules_cpp" />
+			<Add directory="..\..\ORB-Python\micropython_embed" />
+			<Add directory="..\..\ORB-Python\micropython_embed\port" />
 		</Compiler>
 		<Cpp>
 			<Add option="-fdata-sections" />
@@ -242,6 +248,9 @@
 		<Linker>
 			<Add option="-eb_lib=n" />
 		</Linker>
+		<Unit filename="..\Common\Src\ORB.h" />
+		<Unit filename="..\Common\Src\ORBlocal.h" />
+		<Unit filename="..\Common\Src\Properties.h" />
 		<Unit filename="..\Src\AppTask.cpp">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -274,9 +283,6 @@
 		</Unit>
 		<Unit filename="..\Src\MotorTask.h" />
 		<Unit filename="..\Src\MovingAverage.h" />
-		<Unit filename="..\Common\Src\ORB.h" />
-		<Unit filename="..\Common\Src\ORBlocal.h" />
-		<Unit filename="..\Common\Src\Properties.h" />
 		<Unit filename="..\Src\Remote.cpp">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -302,10 +308,6 @@
 		</Unit>
 		<Unit filename="..\Src\Sensor\SensorI2C\SensorI2C_NXTultraschall.h" />
 		<Unit filename="..\Src\Sensor\SensorI2C_Strategy.h" />
-		<Unit filename="..\Src\SensorTask.cpp">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="..\Src\SensorTask.h" />
 		<Unit filename="..\Src\Sensor\SensorTOF.cpp">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -318,6 +320,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="..\Src\Sensor\SensorUART.h" />
+		<Unit filename="..\Src\SensorTask.cpp">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\Src\SensorTask.h" />
 		<Unit filename="..\Src\ServoTask.cpp">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -334,6 +340,456 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="..\Src\UserInterface.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\extmod\modplatform.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\genhdr\moduledefs.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\genhdr\mpversion.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\genhdr\qstrdefs.generated.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\genhdr\root_pointers.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\port\embed_util.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\port\micropython_embed.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\port\mpconfigport_common.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\port\mphalport.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\port\mphalport.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\argcheck.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\asmarm.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\asmarm.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\asmbase.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\asmbase.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\asmthumb.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\asmthumb.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\asmx64.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\asmx64.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\asmx86.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\asmx86.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\asmxtensa.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\asmxtensa.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\bc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\bc.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\bc0.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\binary.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\binary.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\builtin.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\builtinevex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\builtinhelp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\builtinimport.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\compile.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\compile.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\dynruntime.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\emit.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\emitbc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\emitcommon.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\emitglue.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\emitglue.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\emitinlinethumb.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\emitinlinextensa.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\emitnarm.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\emitnative.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\emitnthumb.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\emitnx64.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\emitnx86.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\emitnxtensa.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\emitnxtensawin.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\formatfloat.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\formatfloat.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\frozenmod.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\frozenmod.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\gc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\gc.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\grammar.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\lexer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\lexer.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\malloc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\map.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\misc.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\modarray.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\modbuiltins.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\modcmath.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\modcollections.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\moderrno.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\modgc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\modio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\modmath.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\modmicropython.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\modstruct.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\modsys.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\modthread.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\mpconfig.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\mperrno.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\mphal.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\mpprint.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\mpprint.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\mpstate.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\mpstate.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\mpthread.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\mpz.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\mpz.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\nativeglue.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\nativeglue.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\nlr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\nlr.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\nlraarch64.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\nlrmips.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\nlrpowerpc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\nlrsetjmp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\nlrthumb.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\nlrx64.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\nlrx86.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\nlrxtensa.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\obj.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\obj.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objarray.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objarray.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objattrtuple.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objbool.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objboundmeth.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objcell.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objclosure.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objcomplex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objdeque.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objdict.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objenumerate.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objexcept.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objexcept.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objfilter.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objfloat.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objfun.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objfun.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objgenerator.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objgenerator.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objgetitemiter.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objint.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objint.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objint_longlong.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objint_mpz.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objlist.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objlist.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objmap.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objmodule.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objmodule.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objnamedtuple.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objnamedtuple.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objnone.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objobject.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objpolyiter.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objproperty.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objrange.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objreversed.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objset.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objsingleton.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objslice.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objstr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objstr.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objstringio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objstringio.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objstrunicode.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objtuple.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objtuple.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objtype.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objtype.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\objzip.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\opmethods.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\pairheap.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\pairheap.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\parse.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\parse.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\parsenum.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\parsenum.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\parsenumbase.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\parsenumbase.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\persistentcode.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\persistentcode.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\profile.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\profile.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\pystack.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\pystack.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\qstr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\qstr.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\qstrdefs.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\reader.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\reader.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\repl.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\repl.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\ringbuf.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\ringbuf.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\runtime.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\runtime.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\runtime0.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\runtime_utils.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\scheduler.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\scope.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\scope.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\sequence.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\showbc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\smallint.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\smallint.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\stackctrl.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\stackctrl.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\stream.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\stream.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\unicode.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\unicode.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\vm.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\vmentrytable.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\vstr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\warning.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\micropython_embed\shared\runtime\gchelper.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\shared\runtime\gchelper_generic.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\modules\c_hello\modc_hello.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\modules\c_hello\modc_hello.h" />
+		<Unit filename="..\..\ORB-Python\modules_cpp\SimpleTemplate.h" />
+		<Unit filename="..\..\ORB-Python\modules_cpp\SimpleTemplateWrapper.cpp">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\modules_cpp\SimpleTemplateWrapper.h" />
+		<Unit filename="..\..\ORB-Python\mpconfigport.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />

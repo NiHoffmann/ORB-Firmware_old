@@ -1,0 +1,28 @@
+..\.build\0100\~\#\orb-python\micropython_embed\py\modio.o: \
+ ..\..\ORB-Python\micropython_embed\py\modio.c \
+ ..\..\ORB-Python\micropython_embed/py/runtime.h \
+ ..\..\ORB-Python\micropython_embed/py/mpstate.h \
+ ..\..\ORB-Python\micropython_embed/py/mpconfig.h \
+ ..\..\ORB-Python/mpconfigport.h \
+ ..\..\ORB-Python\micropython_embed/port/mpconfigport_common.h \
+ ..\..\ORB-Python\micropython_embed/py/mpthread.h \
+ ..\..\ORB-Python\micropython_embed/py/misc.h \
+ ..\..\ORB-Python\micropython_embed/py/nlr.h \
+ ..\..\ORB-Python\micropython_embed/py/obj.h \
+ ..\..\ORB-Python\micropython_embed/py/qstr.h \
+ ..\..\ORB-Python\micropython_embed/genhdr/qstrdefs.generated.h \
+ ..\..\ORB-Python\micropython_embed/py/mpprint.h \
+ ..\..\ORB-Python\micropython_embed/py/runtime0.h \
+ ..\..\ORB-Python\micropython_embed/py/objlist.h \
+ ..\..\ORB-Python\micropython_embed/py/objexcept.h \
+ ..\..\ORB-Python\micropython_embed/py/objtuple.h \
+ ..\..\ORB-Python\micropython_embed/genhdr/root_pointers.h \
+ ..\..\ORB-Python\micropython_embed/py/pystack.h \
+ ..\..\ORB-Python\micropython_embed/py/stackctrl.h \
+ ..\..\ORB-Python\micropython_embed/py/builtin.h \
+ ..\..\ORB-Python\micropython_embed/py/stream.h \
+ ..\..\ORB-Python\micropython_embed/py/mperrno.h \
+ ..\..\ORB-Python\micropython_embed/py/binary.h \
+ ..\..\ORB-Python\micropython_embed/py/objarray.h \
+ ..\..\ORB-Python\micropython_embed/py/objstringio.h \
+ ..\..\ORB-Python\micropython_embed/py/frozenmod.h

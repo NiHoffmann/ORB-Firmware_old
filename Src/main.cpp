@@ -22,6 +22,11 @@
 #include "UserInterface.h"
 #include "Remote.h"
 
+extern "C"{
+    #include <port/micropython_embed.h>
+    #include "c_hello/modc_hello.h"
+}
+
 //*******************************************************************
 Rtos rtos( NUM_OF_SENSOR_PORTS+1+1, 200/*us*/ );
 
@@ -62,9 +67,28 @@ Control        ctrl     ( taskManager, ui                          );
 Remote         remoteBT ( ipcBT,       ui, ctrl, settings, monitor );
 Remote         remoteUSB( ipcUSB,      ui, ctrl, settings, monitor );
 
+
+// This is example 2 script, which will be compiled and executed.
+static const char *example =
+    "import c_hello\n"
+    "print(c_hello.hello())\n"
+    "print(c_hello.hello2())\n"
+    "print(2.5)\n"
+    ;
+
+// This array is the MicroPython GC heap.
+static char heap[8 * 1024];
 //*******************************************************************
 int main( void )
 {
+    int stack_top;
+    mp_embed_init(&heap[0], sizeof(heap), &stack_top);
+
+    // Run the example scripts (they will be compiled first).
+    mp_embed_exec_str(example);
+
+    // Deinitialise MicroPython.
+    mp_embed_deinit();
  //cSystem::delayMilliSec(100);
  usb.start();
  System::delayMilliSec(100);
