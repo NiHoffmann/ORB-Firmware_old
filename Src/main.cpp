@@ -24,7 +24,6 @@
 
 extern "C"{
     #include <port/micropython_embed.h>
-    #include "c_hello/modc_hello.h"
 }
 
 //*******************************************************************
@@ -83,6 +82,14 @@ static const uint8_t program[]  = {
   0x63
 };
 
+// This is example 2 script, which will be compiled and executed.
+static const char *program_string =
+    "from orb import led\n"
+    "a = led(id=led.LED_POWER)\n"
+    "print(a.value())\n"
+    "print(a.value(1))"
+    ;
+
 // This array is the MicroPython GC heap.
 static char heap[8 * 1024];
 //*******************************************************************
@@ -91,8 +98,8 @@ int main( void )
     int stack_top;
     mp_embed_init(&heap[0], sizeof(heap), &stack_top);
     // Run the example scripts (they will be compiled first).
-    //mp_embed_exec_str(example);
-    mp_embed_exec_mpy(program, 161);
+    mp_embed_exec_str(program_string);
+    //mp_embed_exec_mpy(program, 161);
     // Deinitialise MicroPython.
     mp_embed_deinit();
  //cSystem::delayMilliSec(100);

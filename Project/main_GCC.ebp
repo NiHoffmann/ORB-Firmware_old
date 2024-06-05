@@ -200,6 +200,7 @@
 			<Add alias="All" targets="Board-00.22;Board-00.30;Board-01.00;" />
 		</VirtualTargets>
 		<Compiler>
+			<Add option="-fno-rtti" />
 			<Add option="-fdata-sections" />
 			<Add option="-ffunction-sections" />
 			<Add option="-O0" />
@@ -235,10 +236,13 @@
 			<Add directory="..\..\ORB-Python\modules_cpp" />
 			<Add directory="..\..\ORB-Python\micropython_embed" />
 			<Add directory="..\..\ORB-Python\micropython_embed\port" />
+			<Add directory="..\..\ORB-Python\modules_cpp\orb" />
 		</Compiler>
 		<Cpp>
+			<Add option="-fno-rtti" />
 			<Add option="-fdata-sections" />
 			<Add option="-ffunction-sections" />
+			<Add option="-O0" />
 			<Add option="-g3" />
 			<Add option="-fno-strict-aliasing" />
 		</Cpp>
@@ -247,6 +251,7 @@
 		</Assembler>
 		<Linker>
 			<Add option="-eb_lib=n" />
+			<Add option="-Wl,--gc-sections" />
 		</Linker>
 		<Unit filename="..\Common\Src\ORB.h" />
 		<Unit filename="..\Common\Src\ORBlocal.h" />
@@ -723,8 +728,13 @@
 		<Unit filename="..\..\ORB-Python\micropython_embed\py\reader.h" />
 		<Unit filename="..\..\ORB-Python\micropython_embed\py\repl.c">
 			<Option compilerVar="CC" />
+			<Option target="Board-00.30" />
+			<Option target="Board-01.00" />
 		</Unit>
-		<Unit filename="..\..\ORB-Python\micropython_embed\py\repl.h" />
+		<Unit filename="..\..\ORB-Python\micropython_embed\py\repl.h">
+			<Option target="Board-00.30" />
+			<Option target="Board-01.00" />
+		</Unit>
 		<Unit filename="..\..\ORB-Python\micropython_embed\py\ringbuf.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -780,15 +790,18 @@
 		<Unit filename="..\..\ORB-Python\micropython_embed\shared\runtime\gchelper_generic.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="..\..\ORB-Python\modules\c_hello\modc_hello.c">
+		<Unit filename="..\..\ORB-Python\modules\orb\led\led.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="..\..\ORB-Python\modules\c_hello\modc_hello.h" />
-		<Unit filename="..\..\ORB-Python\modules_cpp\SimpleTemplate.h" />
-		<Unit filename="..\..\ORB-Python\modules_cpp\SimpleTemplateWrapper.cpp">
+		<Unit filename="..\..\ORB-Python\modules\orb\led\led.h" />
+		<Unit filename="..\..\ORB-Python\modules\orb\orb.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="..\..\ORB-Python\modules_cpp\SimpleTemplateWrapper.h" />
+		<Unit filename="..\..\ORB-Python\modules_cpp\orb\led\LedWrapper.cpp">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\modules_cpp\orb\led\LedWrapper.h" />
+		<Unit filename="..\..\ORB-Python\modules_cpp\orb\led\LedWrapperStruct.h" />
 		<Unit filename="..\..\ORB-Python\mpconfigport.h" />
 		<Extensions>
 			<code_completion />

@@ -5,27 +5,29 @@
 \date   02.02.2021
 \brief  Configuration file
 */
+#ifndef CONFIG_H_
+#define CONFIG_H_
+    //*******************************************************************
+    #include "descriptor.cpp"
 
-//*******************************************************************
-#include "descriptor.cpp"
+    //*******************************************************************
+    #if (BOARD_MAIN == 0 && BOARD_SUB == 22)
 
-//*******************************************************************
-#if (BOARD_MAIN == 0 && BOARD_SUB == 22)
+      #include "config_Board_00_22.h"
 
-  #include "config_Board_00_22.h"
+    #elif (BOARD_MAIN == 0 && BOARD_SUB == 30)
 
-#elif (BOARD_MAIN == 0 && BOARD_SUB == 30)
+      #include "config_Board_00_30.h"
 
-  #include "config_Board_00_30.h"
+    #elif (BOARD_MAIN == 1 && BOARD_SUB == 0)
 
-#elif (BOARD_MAIN == 1 && BOARD_SUB == 0)
+      #include "config_Board_01_00.h"
 
-  #include "config_Board_01_00.h"
+    #else
 
-#else
+      #error "Board hardware version not defined"
 
-  #error "Board hardware version not defined"
+    #endif
 
 #endif
-
 //EOF
