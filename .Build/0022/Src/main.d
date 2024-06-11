@@ -128,15 +128,15 @@
  C:\Users\nils9\Documents\arbeit\orb\ORB-Firmware\EmbSysLib\Src/Module/Download.h \
  ..\Src\config.h ..\Src\descriptor.cpp \
  C:\Users\nils9\Documents\arbeit\orb\ORB-Firmware\EmbSysLib\Src/Hardware/Common/USB/USBdevice/USBdescriptor.h \
- ..\Src\config_Board_00_22.h ..\Src\Bluetooth/BT_RN41.h \
- ..\Src/Bluetooth/Bluetooth.h ..\Src/UART_Ext.h ..\Src\Properties.h \
  ..\Src\MotorTask.h ..\Src\Motor.h ..\Src\MovingAverage.h ..\Src\ORB.h \
  ..\Src\ServoTask.h ..\Src\SensorTask.h ..\Src\Sensor.h \
- ..\Src\Sensor/SensorUART.h ..\Src/Sensor.h ..\Src\Sensor/SensorI2C.h \
+ ..\Src\Properties.h ..\Src\Sensor/SensorUART.h ..\Src/UART_Ext.h \
+ ..\Src/Sensor.h ..\Src\Sensor/SensorI2C.h \
  ..\Src\Sensor/SensorI2C/SensorI2C_NXTultraschall.h \
  ..\Src\Sensor/SensorI2C_Strategy.h ..\Src\Sensor/SensorAnalog.h \
  ..\Src\Sensor/SensorTOF.h ..\Src\Sensor/SensorTouch.h \
- ..\Src\Sensor/SensorDebug.h ..\Src\Settings.h ..\Src\Monitor.h \
- ..\Src\UserInterface.h ..\Src\AppTask.h ..\Src\ORBlocal.h \
- ..\Src\Remote.h ..\Src\Control.h \
+ ..\Src\Sensor/SensorDebug.h ..\Src\config_Board_00_22.h \
+ ..\Src\Bluetooth/BT_RN41.h ..\Src/Bluetooth/Bluetooth.h \
+ ..\Src\Settings.h ..\Src\Monitor.h ..\Src\UserInterface.h \
+ ..\Src\AppTask.h ..\Src\ORBlocal.h ..\Src\Remote.h ..\Src\Control.h \
  ..\..\ORB-Python\micropython_embed/port/micropython_embed.h
