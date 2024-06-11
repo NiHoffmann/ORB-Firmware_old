@@ -32,6 +32,7 @@
       #error "Board hardware version not defined"
 
     #endif
+
     Rtos rtos( NUM_OF_SENSOR_PORTS+1+1, 200/*us*/ );
     Sensor::Context sContext[ NUM_OF_SENSOR_PORTS ]
       = { Sensor::Context( adc1, adc21, digitalA_1, digitalB_1, digitalC_1, digitalD_1, digitalH_1 ),

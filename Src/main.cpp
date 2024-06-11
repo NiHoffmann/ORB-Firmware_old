@@ -22,7 +22,6 @@
 extern "C"{
     #include <port/micropython_embed.h>
 }
-
 //*******************************************************************
 Monitor   monitor;
 
@@ -58,9 +57,9 @@ static const uint8_t program[]  = {
 // This is example 2 script, which will be compiled and executed.
 static const char *program_string =
     "from orb import led\n"
-    "a = led(id=led.LED_POWER)\n"
+    "a = led(id=led.LED_1)\n"
     "print(a.value())\n"
-    "print(a.value(1))"
+    "print(a.blink(100,100))"
     ;
 
 // This array is the MicroPython GC heap.
@@ -75,9 +74,10 @@ int main( void )
     //mp_embed_exec_mpy(program, 161);
     // Deinitialise MicroPython.
     mp_embed_deinit();
+
+    System::delayMilliSec(100000);
     //cSystem::delayMilliSec(100);
     usb.start();
-    System::delayMilliSec(100);
   while(1)
   {
     ui.       update();
