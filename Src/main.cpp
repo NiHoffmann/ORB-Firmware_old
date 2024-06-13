@@ -59,7 +59,7 @@ static const char *program_string =
     "from orb import Port\n"
     "from orb import Motor\n"
     "from orb import Led\n"
-    "m1 = Motor(Port.M1)\n"
+    "m1 = Motor(Port.M2)\n"
     "m1.run(5)\n"
     "l1 = Led(Led.LED_POWER)\n"
     "l1.blink(1000,90)\n"
