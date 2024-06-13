@@ -28,7 +28,4 @@
  ..\..\ORB-Python\micropython_embed/py/mperrno.h \
  ..\..\ORB-Python\micropython_embed/py/bc0.h \
  ..\..\ORB-Python\micropython_embed/py/objstr.h \
- ..\..\ORB-Python\micropython_embed/py/objarray.h \
- ..\..\ORB-Python\micropython_embed/py/smallint.h \
- ..\..\ORB-Python\micropython_embed/py/parsenum.h \
- ..\..\ORB-Python\micropython_embed/py/lexer.h
+ ..\..\ORB-Python\micropython_embed/py/objarray.h

@@ -32,11 +32,11 @@ cISC_UART        ipcBT ( bt );
 cISC_USBdevice   ipcUSB( usb, 0/*interfId*/);
 
 //*******************************************************************
-AppTask        app      ( rtos                                     );
-UserInterface  ui       (              app,      settings          );
-Control        ctrl     ( taskManager, ui                          );
-Remote         remoteBT ( ipcBT,       ui, ctrl, settings, monitor );
-Remote         remoteUSB( ipcUSB,      ui, ctrl, settings, monitor );
+//AppTask        app      ( rtos                                     );
+//UserInterface  ui       (              app,      settings          );
+//Control        ctrl     ( taskManager, ui                          );
+//Remote         remoteBT ( ipcBT,       ui, ctrl, settings, monitor );
+//Remote         remoteUSB( ipcUSB,      ui, ctrl, settings, monitor );
 
 
 // This is example 2 script, which will be compiled and executed.
@@ -56,10 +56,17 @@ static const uint8_t program[]  = {
 
 // This is example 2 script, which will be compiled and executed.
 static const char *program_string =
-    "from orb import led\n"
-    "a = led(id=led.LED_1)\n"
-    "print(a.value())\n"
-    "print(a.blink(100,100))"
+    "from orb import Port\n"
+    "from orb import Motor\n"
+    "from orb import Led\n"
+    "m1 = Motor(Port.M1)\n"
+    "m1.run(5)\n"
+    "l1 = Led(Led.LED_POWER)\n"
+    "l1.blink(1000,90)\n"
+    "l2 = Led(Led.LED_1)\n"
+    "l2.blink(2000,30)\n"
+    "l3 = Led(Led.LED_2)\n"
+    "l3.value(1)\n"
     ;
 
 // This array is the MicroPython GC heap.
@@ -75,14 +82,14 @@ int main( void )
     // Deinitialise MicroPython.
     mp_embed_deinit();
 
-    System::delayMilliSec(100000);
     //cSystem::delayMilliSec(100);
-    usb.start();
+    //usb.start();
   while(1)
   {
-    ui.       update();
-    ctrl.     update();
-    remoteBT. update();
-    remoteUSB.update();
+    System::delayMilliSec(500);
+    //ui.       update();
+    //ctrl.     update();
+    //remoteBT. update();
+    //remoteUSB.update();
   }
 }

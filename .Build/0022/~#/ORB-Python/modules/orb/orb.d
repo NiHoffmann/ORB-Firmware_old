@@ -19,4 +19,6 @@
  ..\..\ORB-Python\micropython_embed/genhdr/root_pointers.h \
  ..\..\ORB-Python\micropython_embed/py/pystack.h \
  ..\..\ORB-Python\micropython_embed/py/stackctrl.h \
- ..\..\ORB-Python\modules\orb\led/led.h
+ ..\..\ORB-Python\modules\orb\led/led.h \
+ ..\..\ORB-Python\modules\orb\port/port.h \
+ ..\..\ORB-Python\modules\orb\motor/motor.h

@@ -113,7 +113,7 @@ cHwUART_Ext      uart4 ( Uart_Mcu::USART_1, 2400, 0,100, 100 );
 
 // Ports
 //------
-Port_Mcu         portA ( Port_Mcu::PA );
+Port_Mcu        portA ( Port_Mcu::PA );
 Port_Mcu        portB ( Port_Mcu::PB );
 Port_Mcu        portC ( Port_Mcu::PC );
 Port_Mcu        portD ( Port_Mcu::PD );
