@@ -48,6 +48,7 @@ void Control::update()
   if( outputTimer.timeout() )
   {
       //-------------------------------------------------------------
+      //TODO extend this logic to also not update when the python vm is running
       if( !ui.isAppActive() )
       {
         // stop all motors

@@ -63,13 +63,16 @@ void UserInterface::update()
 //-------------------------------------------------------------------
 void UserInterface::startApp( BYTE param )
 {
+  //TODO read first bit of program mem, if 0 start app if 1 start pythonvm
+  //register interrupt to button for stopping program!
   if( !app.isRunning())
   {
     if( param )
       indUsr2.set();
     else
       indUsr1.set();
-    app.Start(param);
+    //app.Start(param);
+    //try to start micropython interpreter here
   }
 }
 

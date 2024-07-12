@@ -90,7 +90,7 @@ void AppTask::update( )
   int (*func)(BYTE para, cORBlocal &ptr) =  (int (*)(BYTE, cORBlocal &))(*addr);
 
   // TODO:
-  // - Memory-Size übergeben
+  // - Memory-Size ï¿½bergeben
   //oder
   // Interpreter ermittelt/kennt selbst die Adressen/Size
   //
@@ -252,6 +252,7 @@ void AppTask::setMemory(void *ptr, DWORD addr, BYTE *data, DWORD size )
   mem1.lock();
 }
 
+//TODO use this to read memory
 //-------------------------------------------------------------------
 void AppTask::getMemory(void *ptr, DWORD addr, BYTE *data, DWORD size )
 {

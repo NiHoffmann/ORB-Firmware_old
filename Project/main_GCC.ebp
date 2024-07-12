@@ -792,23 +792,44 @@
 		<Unit filename="..\..\ORB-Python\micropython_embed\shared\runtime\gchelper_generic.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="..\..\ORB-Python\modules\orb\led\led.c">
+		<Unit filename="..\..\ORB-Python\modules\orb\constants\constants.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="..\..\ORB-Python\modules\orb\led\led.h" />
-		<Unit filename="..\..\ORB-Python\modules\orb\led\ledenums.h" />
-		<Unit filename="..\..\ORB-Python\modules\orb\motor\motor.c">
+		<Unit filename="..\..\ORB-Python\modules\orb\constants\constants.h" />
+		<Unit filename="..\..\ORB-Python\modules\orb\constants\port\port.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="..\..\ORB-Python\modules\orb\motor\motor.h" />
+		<Unit filename="..\..\ORB-Python\modules\orb\constants\port\port.h" />
+		<Unit filename="..\..\ORB-Python\modules\orb\constants\port\portenums.h" />
+		<Unit filename="..\..\ORB-Python\modules\orb\devices\devices.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\modules\orb\devices\devices.h" />
+		<Unit filename="..\..\ORB-Python\modules\orb\devices\led\led.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\modules\orb\devices\led\led.h" />
+		<Unit filename="..\..\ORB-Python\modules\orb\devices\led\ledenums.h" />
+		<Unit filename="..\..\ORB-Python\modules\orb\motors\ev3_motor\ev3_motor.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\modules\orb\motors\ev3_motor\ev3_motor.h" />
+		<Unit filename="..\..\ORB-Python\modules\orb\motors\motors.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\modules\orb\motors\motors.h" />
 		<Unit filename="..\..\ORB-Python\modules\orb\orb.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="..\..\ORB-Python\modules\orb\port\port.c">
+		<Unit filename="..\..\ORB-Python\modules\orb\qstrdeforb.h" />
+		<Unit filename="..\..\ORB-Python\modules\orb\sensors\sensors.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="..\..\ORB-Python\modules\orb\port\port.h" />
-		<Unit filename="..\..\ORB-Python\modules\orb\port\portenums.h" />
+		<Unit filename="..\..\ORB-Python\modules\orb\sensors\sensors.h" />
+		<Unit filename="..\..\ORB-Python\modules\orb\sensors\ultrasonic\ultrasonic.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\ORB-Python\modules\orb\sensors\ultrasonic\ultrasonic.h" />
 		<Unit filename="..\..\ORB-Python\modules_cpp\orb\led\LedWrapper.cpp">
 			<Option compilerVar="CC" />
 		</Unit>

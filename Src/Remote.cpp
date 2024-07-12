@@ -68,6 +68,7 @@ void Remote::update()
 {
   bool send = false;
 
+  //TODO figure out what this does and how it does it, i think this is used to update the config
   ipc.update();
 
   //-------------------------------------------------------------
@@ -213,6 +214,9 @@ void Remote::update()
     configReceivedFlag = false;
 
     // write sensor and motor data
+
+    //TODO this write function can be used from inside he micropythob interpreter to write control inforamation to the app!
+    //maybe the best way is to update the prop inside of micropython and not do the writing there
     propOut.write();
   }
 }

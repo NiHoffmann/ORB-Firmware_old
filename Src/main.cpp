@@ -32,11 +32,11 @@ cISC_UART        ipcBT ( bt );
 cISC_USBdevice   ipcUSB( usb, 0/*interfId*/);
 
 //*******************************************************************
-//AppTask        app      ( rtos                                     );
-//UserInterface  ui       (              app,      settings          );
-//Control        ctrl     ( taskManager, ui                          );
-//Remote         remoteBT ( ipcBT,       ui, ctrl, settings, monitor );
-//Remote         remoteUSB( ipcUSB,      ui, ctrl, settings, monitor );
+AppTask        app      ( rtos                                     );
+UserInterface  ui       (              app,      settings          );
+Control        ctrl     ( taskManager, ui                          );
+Remote         remoteBT ( ipcBT,       ui, ctrl, settings, monitor );
+Remote         remoteUSB( ipcUSB,      ui, ctrl, settings, monitor );
 
 
 // This is example 2 script, which will be compiled and executed.
@@ -82,14 +82,13 @@ int main( void )
     // Deinitialise MicroPython.
     mp_embed_deinit();
 
-    //cSystem::delayMilliSec(100);
-    //usb.start();
+    usb.start();
+    System::delayMilliSec(100);
   while(1)
   {
-    System::delayMilliSec(500);
-    //ui.       update();
-    //ctrl.     update();
-    //remoteBT. update();
-    //remoteUSB.update();
+    ui.       update();
+    ctrl.     update();
+    remoteBT. update();
+    remoteUSB.update();
   }
 }
