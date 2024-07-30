@@ -290,6 +290,10 @@
 		</Unit>
 		<Unit filename="..\Src\MotorTask.h" />
 		<Unit filename="..\Src\MovingAverage.h" />
+		<Unit filename="..\Src\PythonTask.cpp">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\Src\PythonTask.h" />
 		<Unit filename="..\Src\Remote.cpp">
 			<Option compilerVar="CC" />
 		</Unit>

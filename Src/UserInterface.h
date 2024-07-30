@@ -13,6 +13,7 @@
 #include "lib.h"
 #include "Settings.h"
 #include "AppTask.h"
+#include "PythonTask.h"
 
 //*******************************************************************
 /*!
@@ -24,7 +25,9 @@ class UserInterface
   public:
     //---------------------------------------------------------------
     UserInterface( AppTask  &app,
-                   Settings &settings );
+                   PythonTask &pythonVm,
+                   Settings &settings
+                 );
 
     //---------------------------------------------------------------
     void update();
@@ -48,6 +51,7 @@ class UserInterface
     //---------------------------------------------------------------
     Settings &settings;
     AppTask  &app;
+    PythonTask &pythonVm;
 };
 
 #endif

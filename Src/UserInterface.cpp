@@ -26,17 +26,22 @@ extern DigitalIndicator pwrIndicator;
 //*******************************************************************
 //-------------------------------------------------------------------
 UserInterface::UserInterface( AppTask      &app,
-                              Settings     &settings )
+                              PythonTask   &pythonVm,
+                              Settings     &settings
+                            )
 
  : settings(settings)
  , app     ( app )
-
+ , pythonVm (pythonVm)
 {
 }
 
+
+static bool a = true;
 //-------------------------------------------------------------------
 void UserInterface::update()
 {
+    /*
   DigitalButton::Action action1 = btn   .getAction();
   DigitalButton::Action action2 = btnAlt.getAction();
 
@@ -58,6 +63,7 @@ void UserInterface::update()
      indUsr1.clr();
      indUsr2.clr();
   }
+  */
 }
 
 //-------------------------------------------------------------------

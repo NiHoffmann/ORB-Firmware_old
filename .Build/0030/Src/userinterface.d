@@ -127,4 +127,26 @@
  ..\Src\Sensor/SensorI2C/SensorI2C_NXTultraschall.h \
  ..\Src\Sensor/SensorI2C_Strategy.h ..\Src\Sensor/SensorAnalog.h \
  ..\Src\Sensor/SensorTOF.h ..\Src\Sensor/SensorTouch.h \
- ..\Src\Sensor/SensorDebug.h ..\Src\ORBlocal.h ..\Src\Monitor.h
+ ..\Src\Sensor/SensorDebug.h ..\Src\ORBlocal.h ..\Src\Monitor.h \
+ ..\Src\PythonTask.h ..\..\ORB-Python\micropython_embed/py/obj.h \
+ ..\..\ORB-Python\micropython_embed/py/mpconfig.h \
+ ..\..\ORB-Python/mpconfigport.h \
+ ..\..\ORB-Python\micropython_embed/port/mpconfigport_common.h \
+ ..\..\ORB-Python\micropython_embed/py/misc.h \
+ ..\..\ORB-Python\micropython_embed/py/qstr.h \
+ ..\..\ORB-Python\micropython_embed/genhdr/qstrdefs.generated.h \
+ ..\..\ORB-Python\micropython_embed/py/mpprint.h \
+ ..\..\ORB-Python\micropython_embed/py/runtime0.h \
+ ..\..\ORB-Python\micropython_embed/py/mphal.h \
+ ..\..\ORB-Python\micropython_embed/port/mphalport.h \
+ ..\..\ORB-Python\micropython_embed/py/runtime.h \
+ ..\..\ORB-Python\micropython_embed/py/mpstate.h \
+ ..\..\ORB-Python\micropython_embed/py/mpthread.h \
+ ..\..\ORB-Python\micropython_embed/py/nlr.h \
+ ..\..\ORB-Python\micropython_embed/py/objlist.h \
+ ..\..\ORB-Python\micropython_embed/py/objexcept.h \
+ ..\..\ORB-Python\micropython_embed/py/objtuple.h \
+ ..\..\ORB-Python\micropython_embed/genhdr/root_pointers.h \
+ ..\..\ORB-Python\micropython_embed/py/pystack.h \
+ ..\..\ORB-Python\micropython_embed/py/stackctrl.h \
+ ..\..\ORB-Python\micropython_embed/port/micropython_embed.h

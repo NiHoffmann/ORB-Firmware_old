@@ -17,6 +17,8 @@ License: See file "LICENSE"
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+#undef MAX
+#undef MIN
 
 //*******************************************************************
 namespace EmbSysLib {

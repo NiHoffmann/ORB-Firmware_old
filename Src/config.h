@@ -33,7 +33,8 @@
 
     #endif
 
-    Rtos rtos( NUM_OF_SENSOR_PORTS+1+1, 200/*us*/ );
+//add the additional task
+    Rtos rtos( NUM_OF_SENSOR_PORTS+1+1+1, 200/*us*/ );
     Sensor::Context sContext[ NUM_OF_SENSOR_PORTS ]
       = { Sensor::Context( adc1, adc21, digitalA_1, digitalB_1, digitalC_1, digitalD_1, digitalH_1 ),
           Sensor::Context( adc2, adc22, digitalA_2, digitalB_2, digitalC_2, digitalD_2, digitalH_2 ),

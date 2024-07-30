@@ -34,7 +34,7 @@ AppTask::AppTask( Rtos &rtosIn)
 : Rtos::Task( rtosIn, 10000/* stack size*/ )
 
 {
-  monitor.clear();
+  //monitor.clear();
 }
 
 //-------------------------------------------------------------------
