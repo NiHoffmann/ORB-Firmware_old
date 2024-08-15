@@ -1,7 +1,6 @@
 #include "PythonTask.h"
 #include "lib.h"
 
-
 PythonTask::PythonTask( Rtos &rtosIn)
 
 : Rtos::Task( rtosIn, 10000/* stack size*/ )
@@ -12,10 +11,11 @@ PythonTask::~PythonTask(){
 }
 
 extern DigitalIndicator pwrIndicator;
+Memory_Flash  programMem(11);
 
 void PythonTask::update( ){
     //pwrIndicator.setBrightness( 20); pwrIndicator.blink(1000, 90);
-    //loadProgram();
+    loadProgram();
     run();
     stop();
 }
@@ -34,18 +34,24 @@ void PythonTask::Stop(){
 
 void PythonTask::loadProgram(){
     //addr should always point to the beginning of the program memory, this is where the program length is saved
-    programLength =  programMem.read(addr);
+    programLength = 0;
+    programLength |= programMem.read(addr)   << 24;
+    programLength |= programMem.read(addr+1) << 16;
+    programLength |= programMem.read(addr+2) << 8;
+    programLength |= programMem.read(addr+3);
+
+    programData = new uint8_t[programLength];
 
     //read program
     for( DWORD i=0;i<programLength;i++){
-        programData[i] = programMem.read(addr + i + 1);
+        programData[i] = programMem.read(addr + i + 4);
     }
 }
 
 void PythonTask::run(){
     int stack_top;
     mp_embed_init(&heap[0], sizeof(heap), &stack_top);
-    mp_embed_exec_str(program_string);
+    mp_embed_exec_mpy(programData, programLength);
     mp_embed_deinit();
 }
 

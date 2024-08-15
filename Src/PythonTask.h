@@ -11,9 +11,6 @@ extern "C"{
     #include <port/micropython_embed.h>
 }
 
-extern Memory_Flash  programMem;
-
-
 class PythonTask : public Rtos::Task
 {
   public:
@@ -21,8 +18,10 @@ class PythonTask : public Rtos::Task
 
     BYTE Parameter;
     // This is example 2 script, which will be compiled and executed.
-    BYTE *programData;
-    BYTE programLength = 0;
+    uint8_t *programData;
+    uint32_t programLength = 0;
+
+    /*
     char *program_string =
     "from orb.devices import led\n"
     "l1 = led(led.LED_POWER)\n"
@@ -33,6 +32,8 @@ class PythonTask : public Rtos::Task
     "l3.value(1)\n"
     "print(led)"
     ;
+    */
+
     DWORD addr = 0;
 
     // This array is the MicroPython GC heap.
